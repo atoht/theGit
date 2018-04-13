@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
     <%  
 String path = request.getContextPath();  
 String basePath = request.getScheme() + "://"  
@@ -26,7 +26,20 @@ Welcome back
 <input type="submit" value="退出登录" >
 </form>
 <div>
-<input id="id1" name="sname" value="${sname}" type="text"> X <input id="id2" type="text"> = <label id="label" ></label> <br>
+<h3>English, USA</h3> 
+<fmt:setLocale value="en_US" /> 
+<table border="1">
+<tr><th>第一位数</th>
+<th></th>
+<th>第二位数</th>
+<th></th>
+<th>结果</th></tr>
+<tr><td><input id="id1" name="sname" value="${sname}" type="text"></td>
+<td> X </td>
+<td><input id="id2" name="sname" value="${sname}" type="text"></td>
+<td> = </td>
+<td id="td" ><fmt:formatNumber type="number" pattern="###,###.###" minFractionDigits="3">95616546569.62</fmt:formatNumber></td></tr>
+</table>
 <input type="button" value="提交" onclick="sum();">
 </div>
 <div>
@@ -35,6 +48,7 @@ Welcome back
 <td id="td">4.3</td>
 </tr>
 </table>
+<fmt:formatNumber type="currency" value="80000.5" /><br/>
 </div>
 <script type="text/javascript">
 function showPDF() {
@@ -49,6 +63,7 @@ function sum() {
 	var str = "8.5";
 	console.info((document.getElementById("td").innerText)*2);
 	var regEx = /,/g;
+		id1 = id1.replace(regEx,'');
 		id2 = id2.replace(regEx,'');
 			console.info(id2);
 	console.info(str*2);
@@ -57,7 +72,7 @@ function sum() {
 	var num1 = 3.5;
 //     id1 = String(id1);
 //     console.info(id1);
-	$("#label").html(id1*id2);
+	$("#td").html((id1*id2).toLocaleString('en-US', {minimumFractionDigits: 3}));
 // 	vad sum
 }
 </script>
