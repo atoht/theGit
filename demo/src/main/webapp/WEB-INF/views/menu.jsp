@@ -18,7 +18,7 @@ String basePath = request.getScheme() + "://"
 <script type="text/javascript" src="sou/easyui/jquery.min.js"></script>
 </head>
 <body>
-Welcome back
+Welcome back 
 <div>
 <input type="button" value="打开PDF" onclick="showPDF()">
 </div>

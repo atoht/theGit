@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.dao.CommodityMapper">
+  <resultMap id="BaseResultMap" type="demo.entity.Commodity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="unitprice" jdbcType="DECIMAL" property="unitprice" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, model, unitprice, Amount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_commodity
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from m_commodity
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="demo.entity.Commodity">
+    insert into m_commodity (id, name, model, 
+      unitprice, Amount)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
+      #{unitprice,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="demo.entity.Commodity">
+    insert into m_commodity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="model != null">
+        model,
+      </if>
+      <if test="unitprice != null">
+        unitprice,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="unitprice != null">
+        #{unitprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="demo.entity.Commodity">
+    update m_commodity
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="unitprice != null">
+        unitprice = #{unitprice,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="demo.entity.Commodity">
+    update m_commodity
+    set name = #{name,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      unitprice = #{unitprice,jdbcType=DECIMAL},
+      Amount = #{amount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
