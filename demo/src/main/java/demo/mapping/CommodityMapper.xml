@@ -17,6 +17,21 @@
     from m_commodity
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByALL" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_commodity
+  </select>
+  <select id="selectByArrayId" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_commodity
+    where id in(  
+            <foreach collection="id" item="id" index="index" separator="," >    
+                #{id,jdbcType=INTEGER}   
+            </foreach>  
+        )  
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from m_commodity
     where id = #{id,jdbcType=INTEGER}

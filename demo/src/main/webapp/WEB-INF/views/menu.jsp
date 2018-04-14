@@ -26,6 +26,7 @@ Welcome back
 <input type="submit" value="退出登录" >
 </form>
 <div>
+<div><a href="SearchModel">商品搜索</a></div>
 <h3>English, USA</h3> 
 <fmt:setLocale value="en_US" /> 
 <table border="1">

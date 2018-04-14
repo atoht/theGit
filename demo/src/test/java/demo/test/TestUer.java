@@ -1,5 +1,7 @@
 package demo.test;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -43,6 +45,11 @@ public class TestUer {
 //		userDto.age = 10;
 		User uu = u.selectByPrimaryKey(5);
 		Commodity ad = cm.selectByPrimaryKey(2);
+		String[] s = {"2","3","6"};
+		List<Commodity> comList = cm.selectByArrayId(s);
+		for (Commodity temp : comList) {
+			System.out.println(temp.getName());
+		}
 //		userDto = ui.getUser(1);
 //		u.setId(51);
 //		u.setName("的解放螺丝钉解放");

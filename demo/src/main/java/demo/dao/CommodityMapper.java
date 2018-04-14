@@ -1,5 +1,9 @@
 package demo.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import demo.entity.Commodity;
 
 public interface CommodityMapper {
@@ -14,4 +18,8 @@ public interface CommodityMapper {
     int updateByPrimaryKeySelective(Commodity record);
 
     int updateByPrimaryKey(Commodity record);
+    
+    List<Commodity> selectByALL();
+
+    List<Commodity> selectByArrayId(@Param("id")String[] roles);
 }
