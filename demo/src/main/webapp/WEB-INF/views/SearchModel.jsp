@@ -64,7 +64,6 @@ showOn: "both",
       selectOtherMonths: true,
     });
 		$( "#datepicker" ).datepicker( "option", "showAnim", "drop" );
-		$( ".ui_timepicker" ).datetimepicker( "option", "showAnim", "drop" );
 		 $(".ui_timepicker").datetimepicker({  
              dateFormat: "yy-mm-dd",  
              showSecond: true,  
@@ -83,8 +82,6 @@ ${list[0].name }
 <form action="showCommodity" method="POST">
 <p>日期：<input type="text" id="datepicker" name="datepicker" value="2003/3/4 (Tue)" ></p>
 <input type="text" name="datetime" class="ui_timepicker" value="2015-3-25 13:40:10">  
-<!-- <input type="text" class="date-inp" id="datepicker" name="datepicker" value="" autocomplete="off" readonly> -->
-<!--     <i class="date-ic"></i> -->
 <table>
 <tr>
 <th><input type="checkbox" id="checkAll0"></th>
