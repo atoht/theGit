@@ -42,6 +42,8 @@ public class SearchModel {
 	@RequestMapping(value="showCommodity", method=RequestMethod.POST)
 	public String showCommodity(Model model, HttpServletRequest req) {
 		String[] checkBox =req.getParameterValues("checkBox");
+		String datepicker =req.getParameter("datepicker");
+		
 		List<Commodity> commodityList = commodityMapper.selectByArrayId(checkBox);
 		session.setAttribute("commodityList", commodityList);
 		model.addAttribute("commodityList", commodityList);
@@ -51,7 +53,9 @@ public class SearchModel {
 	@RequestMapping(value="enterTheOrder", method=RequestMethod.POST)
 	public String enterTheOrder(Model model, FormDto formDto, HttpServletRequest req) {
 		List<Commodity> commodityList = (List<Commodity>)session.getAttribute("commodityList");
-		iEnterTheOrder.enterOrder(formDto, commodityList);
-		return "SearchModel";
+		Orders orders = new Orders();
+		iEnterTheOrder.enterOrder(formDto, commodityList, orders);
+		model.addAttribute("orders", orders);
+		return "OrderConfirm";
 	}
 }

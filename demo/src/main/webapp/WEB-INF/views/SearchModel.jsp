@@ -10,7 +10,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/commion.css">
+<link rel="stylesheet" type="text/css" href="sou/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="sou/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css">
+<link rel="stylesheet" type="text/css" href="sou/jquery-ui-1.12.1.custom/jquery-ui-timepicker-addon.css">
 <script type="text/javascript" src="sou/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="sou/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script type="text/javascript" src="sou/jquery-ui-1.12.1.custom/jquery-ui-timepicker-addon.js"></script>
 <script type="text/javascript">
 $(function () {
 	$("#checkAll").click(function() {
@@ -44,6 +49,31 @@ function keyup (val, index) {
 	document.getElementById("amount"+index).innerText = (val*unitprice).toLocaleString('en-US', {minimumFractionDigits: 3});
 	document.getElementById("totalAmount").innerText = (val*unitprice).toLocaleString('en-US', {minimumFractionDigits: 3});
 }
+
+$(function() {
+    $( "#datepicker" ).datepicker({
+//       showOn: "button",
+//       buttonImage: "sou/jquery-ui-1.12.1/images/ui-icons_777620_256x240.png",
+showOn: "both", 
+      buttonImageOnly: true,
+      showButtonPanel: true, //显示面板底部按钮
+      closeTextType:"close", //关闭按钮文字
+      currentText: "today",
+      dateFormat:"yy/mm/dd (D)",
+      showOtherMonths: true,
+      selectOtherMonths: true,
+    });
+		$( "#datepicker" ).datepicker( "option", "showAnim", "drop" );
+		$( ".ui_timepicker" ).datetimepicker( "option", "showAnim", "drop" );
+		 $(".ui_timepicker").datetimepicker({  
+             dateFormat: "yy-mm-dd",  
+             showSecond: true,  
+             timeFormat: 'hh:mm:ss',  
+             stepHour: 1,  
+             stepMinute: 1,  
+             stepSecond: 1  
+         })  
+  });
 </script>
 </head>
 <body>
@@ -51,6 +81,10 @@ function keyup (val, index) {
 手动阀手动
 ${list[0].name }
 <form action="showCommodity" method="POST">
+<p>日期：<input type="text" id="datepicker" name="datepicker" value="2003/3/4 (Tue)" ></p>
+<input type="text" name="datetime" class="ui_timepicker" value="2015-3-25 13:40:10">  
+<!-- <input type="text" class="date-inp" id="datepicker" name="datepicker" value="" autocomplete="off" readonly> -->
+<!--     <i class="date-ic"></i> -->
 <table>
 <tr>
 <th><input type="checkbox" id="checkAll0"></th>

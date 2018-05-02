@@ -24,9 +24,8 @@ public class EnterTheOrderService implements IEnterTheOrder {
 	OrdersMapper ordersMapper;
 	
 	@Override
-	public void enterOrder (FormDto formDto, List<Commodity> commodityLis) {
+	public void enterOrder (FormDto formDto, List<Commodity> commodityLis, Orders orders) {
 		
-		Orders orders = new Orders();
 		int count = 0;
 		for (Commodity temp : commodityLis) {
 			if (!StringUtils.isEmpty(formDto.getSelectFlag1()) && count != 1) {
@@ -38,6 +37,7 @@ public class EnterTheOrderService implements IEnterTheOrder {
 					orders.setModel1(temp.getModel());
 					orders.setQuantity1(formDto.getQuantity1());
 					orders.setAmount1(quantity);
+					temp.setUnitprice(quantity);
 					orders.setTotalamount(orders.getAmount1());
 					count = 1;
 				}
