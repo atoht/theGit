@@ -10,7 +10,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/commion.css">
+<link rel="stylesheet" type="text/css" href="sou/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="sou/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css">
 <script type="text/javascript" src="sou/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="sou/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 <script type="text/javascript">
 $(function () {
 	$("#checkAll").click(function() {
@@ -44,6 +47,34 @@ function keyup (val, index) {
 	document.getElementById("amount"+index).innerText = (val*unitprice).toLocaleString('en-US', {minimumFractionDigits: 3});
 	document.getElementById("totalAmount").innerText = (val*unitprice).toLocaleString('en-US', {minimumFractionDigits: 3});
 }
+
+$(function() {
+    $( "#datepicker" ).datepicker({
+//       showOn: "button",
+//       buttonImage: "sou/jquery-ui-1.12.1/images/ui-icons_777620_256x240.png",
+showOn: "both", 
+      buttonImageOnly: true,
+      showButtonPanel: true, //显示面板底部按钮
+      closeTextType:"close", //关闭按钮文字
+      currentText: "today",
+      dateFormat:"yy/mm/dd (D)",
+      showOtherMonths: true,
+      selectOtherMonths: true,
+      autoSize: true,
+      showSecond: true, 
+//       timeFormat: 'hh:mm:ss',
+//       stepHour: 1,  
+//       stepMinute: 1,  
+//       stepSecond: 1 ,
+    });
+		$( "#datepicker" ).datepicker( "option", "showAnim", "drop" );
+// 		$('#datepicker').siblings('i').eq(0).click(function () {
+// 		       $('#datepicker').datepicker('show');
+// 		    });
+// 		$( "#datepicker" ).resizable({
+// 		      aspectRatio: 16 / 9
+// 		    });
+  });
 </script>
 </head>
 <body>
@@ -51,6 +82,9 @@ function keyup (val, index) {
 手动阀手动
 ${list[0].name }
 <form action="showCommodity" method="POST">
+<p>日期：<input type="text" id="datepicker" name="datepicker" value="2003/3/4 (Tue)" ></p>
+<!-- <input type="text" class="date-inp" id="datepicker" name="datepicker" value="" autocomplete="off" readonly> -->
+<!--     <i class="date-ic"></i> -->
 <table>
 <tr>
 <th><input type="checkbox" id="checkAll0"></th>
