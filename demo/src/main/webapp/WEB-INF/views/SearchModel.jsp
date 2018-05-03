@@ -52,17 +52,21 @@ function keyup (val, index) {
 
 $(function() {
     $( "#datepicker" ).datepicker({
-//       showOn: "button",
-//       buttonImage: "sou/jquery-ui-1.12.1/images/ui-icons_777620_256x240.png",
-showOn: "both", 
+      showOn: "both", 
+      buttonImage: "sou/jquery-ui-1.12.1.custom/images/9779.jpg_wh120.jpg",
       buttonImageOnly: true,
-      showButtonPanel: true, //显示面板底部按钮
-      closeTextType:"close", //关闭按钮文字
-      currentText: "today",
+//       showButtonPanel: true, //显示面板底部按钮
+//       closeTextType:"close", //关闭按钮文字
+//       currentText: "today",
       dateFormat:"yy/mm/dd (D)",
       showOtherMonths: true,
       selectOtherMonths: true,
     });
+    var v = true;
+    if(!v){
+    	
+    $("#datepicker").datepicker("disable")
+    }
 		$( "#datepicker" ).datepicker( "option", "showAnim", "drop" );
 		 $(".ui_timepicker").datetimepicker({  
              dateFormat: "yy-mm-dd",  
@@ -80,7 +84,6 @@ showOn: "both",
 手动阀手动
 ${list[0].name }
 <form action="showCommodity" method="POST">
-<p>日期：<input type="text" id="datepicker" name="datepicker" value="2003/3/4 (Tue)" ></p>
 <input type="text" name="datetime" class="ui_timepicker" value="2015-3-25 13:40:10">  
 <table>
 <tr>
@@ -121,6 +124,7 @@ ${list[0].name }
 </table>
 <div id="box2">
 总价：<b id="totalAmount"><fmt:formatNumber type="number" pattern="###,###.###" minFractionDigits="3">0</fmt:formatNumber></b><br>
+<p>日期：<input type="text" id="datepicker" name="datepicker" value="2003/3/4 (Tue)" disabled="disabled"></p>
 </div>
 <input type="submit" value="提交">
 </form>
