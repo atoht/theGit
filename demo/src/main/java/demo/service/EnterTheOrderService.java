@@ -27,6 +27,8 @@ public class EnterTheOrderService implements IEnterTheOrder {
 	public void enterOrder (FormDto formDto, List<Commodity> commodityLis, Orders orders) {
 		
 		int count = 0;
+		formDto.selectFlag = new boolean[commodityLis.size()];
+		formDto.quantity = new Integer[commodityLis.size()];
 		for (Commodity temp : commodityLis) {
 			if (!StringUtils.isEmpty(formDto.getSelectFlag1()) && count != 1) {
 				if (formDto.getSelectFlag1().equals(temp.getId().toString())) {
@@ -40,6 +42,8 @@ public class EnterTheOrderService implements IEnterTheOrder {
 					temp.setUnitprice(quantity);
 					orders.setTotalamount(orders.getAmount1());
 					count = 1;
+					formDto.quantity[count-1] = formDto.getQuantity1();
+					formDto.selectFlag[count-1] = true;
 				}
 			}
 			if (!StringUtils.isEmpty(formDto.getSelectFlag2()) && count != 2) {
@@ -57,6 +61,8 @@ public class EnterTheOrderService implements IEnterTheOrder {
 						orders.setTotalamount(orders.getAmount2());
 					} 
 					count = 2;
+					formDto.quantity[count-1] = formDto.getQuantity2();
+					formDto.selectFlag[count-1] = true;
 				}
 			}
 			if (!StringUtils.isEmpty(formDto.getSelectFlag3()) && count != 3) {
@@ -74,6 +80,8 @@ public class EnterTheOrderService implements IEnterTheOrder {
 						orders.setTotalamount(orders.getAmount3());
 					} 
 					count = 3;
+					formDto.quantity[count-1] = formDto.getQuantity3();
+					formDto.selectFlag[count-1] = true;
 				}
 			}
 			if (!StringUtils.isEmpty(formDto.getSelectFlag4()) && count != 4) {
@@ -91,6 +99,8 @@ public class EnterTheOrderService implements IEnterTheOrder {
 						orders.setTotalamount(orders.getAmount4());
 					} 
 					count = 4;
+					formDto.quantity[count-1] = formDto.getQuantity4();
+					formDto.selectFlag[count-1] = true;
 				}
 			}
 			if (!StringUtils.isEmpty(formDto.getSelectFlag5()) && count != 5) {
@@ -108,6 +118,8 @@ public class EnterTheOrderService implements IEnterTheOrder {
 						orders.setTotalamount(orders.getAmount5());
 					} 
 					count = 5;
+					formDto.quantity[count-1] = formDto.getQuantity5();
+					formDto.selectFlag[count-1] = true;
 				}
 			}
 		}

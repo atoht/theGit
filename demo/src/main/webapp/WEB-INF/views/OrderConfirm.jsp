@@ -12,10 +12,10 @@
 </head>
 <body>
 <div id="box1">
-<form action="enterTheOrder" method="POST">
+<form action="downloadExcel" method="POST">
 <table border="1" id="table">
 <tr>
-<th><input type="checkbox" id="checkAll"></th>
+<!-- <th><input type="checkbox" id="checkAll"></th> -->
 <th>商品名称</th>
 <th>商品型号</th>
 <th>数量</th>
@@ -23,18 +23,20 @@
 <th>金额</th>
 </tr>
 <c:forEach items="${commodityList }" var="vr" varStatus="status">
+<c:set var="count" scope="session" value="${status.index}"/>
+<c:if test="${formDto.selectFlag[count] }">
 <tr>
-<td ><input type="checkbox" id="selectFlag" name="selectFlag${status.index +1}" value="${vr.id }" ></td>
 <td width="20%">${vr.name }</td>
 <td width="20%">${vr.model }</td>
-<td width="10%"><input type="text" name="quantity${status.index +1}" value="1" id="quantity" onkeyup="keyup(this.value, ${status.index +1})" ></td>
+<td width="10%">${formDto.quantity[count] }</td>
 <td id="unitprice${status.index +1}" align="right" width="20%"><fmt:formatNumber type="number" pattern="###,###.###" minFractionDigits="3">${vr.unitprice }</fmt:formatNumber></td>
 <td id="amount${status.index +1}" align="right" width="20%"><fmt:formatNumber type="number" pattern="###,###.###" minFractionDigits="3">${vr.amount }</fmt:formatNumber></td>
 </tr>
+</c:if>
 </c:forEach>
 </table>
 <div id="box2">
-总价：<b id="totalAmount"><fmt:formatNumber type="number" pattern="###,###.###" minFractionDigits="3">0</fmt:formatNumber></b><br>
+总价：<b id="totalAmount"><fmt:formatNumber type="number" pattern="###,###.###" minFractionDigits="3">${orders.totalamount}</fmt:formatNumber></b><br>
 </div>
 <input type="submit" value="提交">
 </form>

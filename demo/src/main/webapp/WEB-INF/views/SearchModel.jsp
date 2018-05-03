@@ -65,7 +65,7 @@ $(function() {
     var v = true;
     if(!v){
     	
-    $("#datepicker").datepicker("disable")
+//     $("#datepicker").datepicker("disable")
     }
 		$( "#datepicker" ).datepicker( "option", "showAnim", "drop" );
 		 $(".ui_timepicker").datetimepicker({  
@@ -122,11 +122,11 @@ ${list[0].name }
 </tr>
 </c:forEach>
 </table>
+<input type="submit" value="提交"><br>
 <div id="box2">
-总价：<b id="totalAmount"><fmt:formatNumber type="number" pattern="###,###.###" minFractionDigits="3">0</fmt:formatNumber></b><br>
-<p>日期：<input type="text" id="datepicker" name="datepicker" value="2003/3/4 (Tue)" disabled="disabled"></p>
+总价：<b id="totalAmount"><fmt:formatNumber type="number" pattern="###,###.###" minFractionDigits="3">0</fmt:formatNumber></b>
+<b>日期：<input type="text" id="datepicker" name="datepicker" value="2003/3/4 (Tue)" ></b><br>
 </div>
-<input type="submit" value="提交">
 </form>
 </div>
 </body>

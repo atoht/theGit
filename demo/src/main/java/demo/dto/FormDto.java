@@ -1,16 +1,22 @@
 package demo.dto;
 
+import java.util.List;
+
+import demo.entity.Commodity;
+
 public class FormDto {
 	
 	private String selectFlag1;
 	
 	private String selectFlag2;
 	
-	private String selectFlag3;
+	public String selectFlag3;
 	
 	private String selectFlag4;
 	
 	private String selectFlag5;
+	
+	public boolean[] selectFlag;
 	
 	private Integer quantity1;
 	
@@ -21,6 +27,10 @@ public class FormDto {
 	private Integer quantity4;
 	
 	private Integer quantity5;
+	
+	public Integer[] quantity;
+	
+	List<Commodity> commodityList;
 
 	public String getSelectFlag1() {
 		return selectFlag1;
@@ -100,5 +110,29 @@ public class FormDto {
 
 	public void setQuantity5(Integer quantity5) {
 		this.quantity5 = quantity5;
+	}
+
+	public boolean[] getSelectFlag() {
+		return selectFlag;
+	}
+
+	public void setSelectFlag(boolean[] selectFlag) {
+		this.selectFlag = selectFlag;
+	}
+
+	public Integer[] getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer[] quantity) {
+		this.quantity = quantity;
+	}
+
+	public List<Commodity> getCommodityList() {
+		return commodityList;
+	}
+
+	public void setCommodityList(List<Commodity> commodityList) {
+		this.commodityList = commodityList;
 	}
 }
