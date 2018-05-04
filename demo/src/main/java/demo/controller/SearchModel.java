@@ -33,7 +33,7 @@ public class SearchModel {
 	HttpSession session;
 	
 	@RequestMapping({"/SearchModel", "/"})
-	public String search(Model model) {
+	public String search(Model model, FormDto formDto) {
 		List<Commodity> list = commodityMapper.selectByALL();
 		model.addAttribute("list", list);
 		model.addAttribute("command", new Orders());
@@ -43,7 +43,7 @@ public class SearchModel {
 	}
 
 	@RequestMapping(value="showCommodity", method=RequestMethod.POST)
-	public String showCommodity(Model model, HttpServletRequest req) {
+	public String showCommodity(Model model, FormDto formDto, HttpServletRequest req) {
 		String[] checkBox =req.getParameterValues("checkBox");
 		
 		

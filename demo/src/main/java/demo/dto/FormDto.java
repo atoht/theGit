@@ -31,6 +31,10 @@ public class FormDto {
 	public Integer[] quantity;
 	
 	List<Commodity> commodityList;
+	
+	public String formcheckboxStr;
+
+	public Boolean formcheckboxBoo;
 
 	public String getSelectFlag1() {
 		return selectFlag1;
@@ -135,4 +139,21 @@ public class FormDto {
 	public void setCommodityList(List<Commodity> commodityList) {
 		this.commodityList = commodityList;
 	}
+
+	public String getFormcheckboxStr() {
+		return formcheckboxStr;
+	}
+
+	public void setFormcheckboxStr(String formcheckboxStr) {
+		this.formcheckboxStr = formcheckboxStr;
+	}
+
+	public Boolean getFormcheckboxBoo() {
+		return formcheckboxBoo;
+	}
+
+	public void setFormcheckboxBoo(Boolean formcheckboxBoo) {
+		this.formcheckboxBoo = formcheckboxBoo;
+	}
+
 }

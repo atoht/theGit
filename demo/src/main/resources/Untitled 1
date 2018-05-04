@@ -1,0 +1,23 @@
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts.action.*;
+
+public class DynaResetForm extends DynaActionForm{
+
+　　public void reset(ActionMapping mapping,
+　　　　　　　　　　　　　HttpServletRequest request) {
+
+　　　　// プロパティ"chk"に文字をセット
+　　　　this.set("chk","off");
+　　}
+
+}
+
+<form-beans >  //struts-config
+　　 <form-bean 
+　　　　　　name="DynaResetForm" 
+　　　　　　type="sample.form.DynaResetForm" >
+
+　　　　　　<form-property 　name="chk" type="java.lang.String" />
+
+　　 </form-bean>
+</form-beans >

@@ -40,6 +40,11 @@ $(function () {
                 })  
     }  
 	})
+	$("#formcheckboxBoo").click(function() {
+		var v = document.getElementById("formcheckboxBoo").checked;
+		document.getElementById("formcheckboxStr").checked = v;
+		console.info(v);
+	})
 })
 function keyup (val, index) {
 	var regEx = /,/g;
@@ -97,6 +102,10 @@ ${list[0].name }
 </tr>
 </c:forEach>
 </table>
+<input type="checkbox" name="formcheckboxStr" id="formcheckboxStr">
+<input type="checkbox" name="formcheckboxBoo" id="formcheckboxBoo">
+<!-- <html:checkbox /> -->
+<!-- <html:text/> -->
 <input type="submit" value="提交">
 </form>
 </div>
