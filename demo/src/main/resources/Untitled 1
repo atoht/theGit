@@ -21,3 +21,5 @@ public class DynaResetForm extends DynaActionForm{
 
 　　 </form-bean>
 </form-beans >
+
+http://s2container.seasar.org/2.4/ja/s2jdbc_manager_auto.html
