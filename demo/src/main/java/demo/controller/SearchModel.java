@@ -3,6 +3,7 @@ package demo.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,11 +68,11 @@ public class SearchModel {
 	}
 	
 	@RequestMapping(value="downloadExcel", method=RequestMethod.POST)
-	public String downloadExcel(Model model, HttpServletRequest req) {
+	public String downloadExcel(Model model, HttpServletRequest req, HttpServletResponse resp) {
 		@SuppressWarnings("unchecked")
 		List<Commodity> commodityList = (List<Commodity>)session.getAttribute("commodityList");
 		FormDto formDto = (FormDto)session.getAttribute("formDto");
-		downloadExcelI.createExcel(formDto, commodityList);
+		downloadExcelI.createExcel(formDto, commodityList, resp);
 		return "OrderConfirm";
 	}
 }

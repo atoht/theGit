@@ -39,7 +39,7 @@ public class EnterTheOrderService implements IEnterTheOrder {
 					orders.setModel1(temp.getModel());
 					orders.setQuantity1(formDto.getQuantity1());
 					orders.setAmount1(quantity);
-					temp.setUnitprice(quantity);
+					temp.setAmount(quantity);
 					orders.setTotalamount(orders.getAmount1());
 					count = 1;
 					formDto.quantity[count-1] = formDto.getQuantity1();
@@ -55,6 +55,7 @@ public class EnterTheOrderService implements IEnterTheOrder {
 					orders.setModel2(temp.getModel());
 					orders.setQuantity2(formDto.getQuantity2());
 					orders.setAmount2(quantity);
+					temp.setAmount(quantity);
 					if (orders.getTotalamount() != null) {
 						orders.setTotalamount(orders.getTotalamount().add(orders.getAmount2()));
 					}else {
@@ -74,6 +75,7 @@ public class EnterTheOrderService implements IEnterTheOrder {
 					orders.setModel3(temp.getModel());
 					orders.setQuantity3(formDto.getQuantity3());
 					orders.setAmount3(quantity);
+					temp.setAmount(quantity);
 					if (orders.getTotalamount() != null) {
 						orders.setTotalamount(orders.getTotalamount().add(orders.getAmount3()));
 					}else {
@@ -93,6 +95,7 @@ public class EnterTheOrderService implements IEnterTheOrder {
 					orders.setModel4(temp.getModel());
 					orders.setQuantity4(formDto.getQuantity4());
 					orders.setAmount4(quantity);
+					temp.setAmount(quantity);
 					if (orders.getTotalamount() != null) {
 						orders.setTotalamount(orders.getTotalamount().add(orders.getAmount4()));
 					}else {
@@ -112,6 +115,7 @@ public class EnterTheOrderService implements IEnterTheOrder {
 					orders.setModel5(temp.getModel());
 					orders.setQuantity5(formDto.getQuantity5());
 					orders.setAmount5(quantity);
+					temp.setAmount(quantity);
 					if (orders.getTotalamount() != null) {
 						orders.setTotalamount(orders.getTotalamount().add(orders.getAmount5()));
 					}else {
