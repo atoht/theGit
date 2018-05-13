@@ -21,3 +21,14 @@ public class DynaResetForm extends DynaActionForm{
 
 　　 </form-bean>
 </form-beans >
+
+http://s2container.seasar.org/2.4/ja/s2jdbc_manager_auto.html
+
+SELECT * from test.new_table t where (t.name,t.age) in (select name from test.new_table1 t1 where name = 'd' and a);
+
+
+SELECT * from test.new_table t where exists (select name from test.new_table1 t1 where name = t.name and t1.age=t.age);
+
+select  * from dept d inner join emp e on d.dname = e.ename and d.loc = e.job;  
+
+SELECT * from test.new_table t where exists (select * from test.able t2 where name = "d" and age=5 and t2.name1=t.name and t2.age1=t.age);
