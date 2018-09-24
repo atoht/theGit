@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.dao.OrdersMapper">
+  <resultMap id="BaseResultMap" type="demo.entity.Orders">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name1" jdbcType="VARCHAR" property="name1" />
+    <result column="model1" jdbcType="VARCHAR" property="model1" />
+    <result column="quantity1" jdbcType="INTEGER" property="quantity1" />
+    <result column="amount1" jdbcType="DECIMAL" property="amount1" />
+    <result column="name2" jdbcType="VARCHAR" property="name2" />
+    <result column="model2" jdbcType="VARCHAR" property="model2" />
+    <result column="quantity2" jdbcType="INTEGER" property="quantity2" />
+    <result column="amount2" jdbcType="DECIMAL" property="amount2" />
+    <result column="name3" jdbcType="VARCHAR" property="name3" />
+    <result column="model3" jdbcType="VARCHAR" property="model3" />
+    <result column="quantity3" jdbcType="INTEGER" property="quantity3" />
+    <result column="amount3" jdbcType="DECIMAL" property="amount3" />
+    <result column="name4" jdbcType="VARCHAR" property="name4" />
+    <result column="model4" jdbcType="VARCHAR" property="model4" />
+    <result column="quantity4" jdbcType="INTEGER" property="quantity4" />
+    <result column="amount4" jdbcType="DECIMAL" property="amount4" />
+    <result column="name5" jdbcType="VARCHAR" property="name5" />
+    <result column="model5" jdbcType="VARCHAR" property="model5" />
+    <result column="quantity5" jdbcType="INTEGER" property="quantity5" />
+    <result column="amount5" jdbcType="DECIMAL" property="amount5" />
+    <result column="totalAmount" jdbcType="DECIMAL" property="totalamount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name1, model1, quantity1, amount1, name2, model2, quantity2, amount2, name3, 
+    model3, quantity3, amount3, name4, model4, quantity4, amount4, name5, model5, quantity5, 
+    amount5, totalAmount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_orders
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from m_orders
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="demo.entity.Orders">
+    insert into m_orders (id, name1, model1, 
+      quantity1, amount1, name2, 
+      model2, quantity2, amount2, 
+      name3, model3, quantity3, 
+      amount3, name4, model4, 
+      quantity4, amount4, name5, 
+      model5, quantity5, amount5, 
+      totalAmount)
+    values (#{id,jdbcType=INTEGER}, #{name1,jdbcType=VARCHAR}, #{model1,jdbcType=VARCHAR}, 
+      #{quantity1,jdbcType=INTEGER}, #{amount1,jdbcType=DECIMAL}, #{name2,jdbcType=VARCHAR}, 
+      #{model2,jdbcType=VARCHAR}, #{quantity2,jdbcType=INTEGER}, #{amount2,jdbcType=DECIMAL}, 
+      #{name3,jdbcType=VARCHAR}, #{model3,jdbcType=VARCHAR}, #{quantity3,jdbcType=INTEGER}, 
+      #{amount3,jdbcType=DECIMAL}, #{name4,jdbcType=VARCHAR}, #{model4,jdbcType=VARCHAR}, 
+      #{quantity4,jdbcType=INTEGER}, #{amount4,jdbcType=DECIMAL}, #{name5,jdbcType=VARCHAR}, 
+      #{model5,jdbcType=VARCHAR}, #{quantity5,jdbcType=INTEGER}, #{amount5,jdbcType=DECIMAL}, 
+      #{totalamount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="demo.entity.Orders">
+    insert into m_orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name1 != null">
+        name1,
+      </if>
+      <if test="model1 != null">
+        model1,
+      </if>
+      <if test="quantity1 != null">
+        quantity1,
+      </if>
+      <if test="amount1 != null">
+        amount1,
+      </if>
+      <if test="name2 != null">
+        name2,
+      </if>
+      <if test="model2 != null">
+        model2,
+      </if>
+      <if test="quantity2 != null">
+        quantity2,
+      </if>
+      <if test="amount2 != null">
+        amount2,
+      </if>
+      <if test="name3 != null">
+        name3,
+      </if>
+      <if test="model3 != null">
+        model3,
+      </if>
+      <if test="quantity3 != null">
+        quantity3,
+      </if>
+      <if test="amount3 != null">
+        amount3,
+      </if>
+      <if test="name4 != null">
+        name4,
+      </if>
+      <if test="model4 != null">
+        model4,
+      </if>
+      <if test="quantity4 != null">
+        quantity4,
+      </if>
+      <if test="amount4 != null">
+        amount4,
+      </if>
+      <if test="name5 != null">
+        name5,
+      </if>
+      <if test="model5 != null">
+        model5,
+      </if>
+      <if test="quantity5 != null">
+        quantity5,
+      </if>
+      <if test="amount5 != null">
+        amount5,
+      </if>
+      <if test="totalamount != null">
+        totalAmount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name1 != null">
+        #{name1,jdbcType=VARCHAR},
+      </if>
+      <if test="model1 != null">
+        #{model1,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity1 != null">
+        #{quantity1,jdbcType=INTEGER},
+      </if>
+      <if test="amount1 != null">
+        #{amount1,jdbcType=DECIMAL},
+      </if>
+      <if test="name2 != null">
+        #{name2,jdbcType=VARCHAR},
+      </if>
+      <if test="model2 != null">
+        #{model2,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity2 != null">
+        #{quantity2,jdbcType=INTEGER},
+      </if>
+      <if test="amount2 != null">
+        #{amount2,jdbcType=DECIMAL},
+      </if>
+      <if test="name3 != null">
+        #{name3,jdbcType=VARCHAR},
+      </if>
+      <if test="model3 != null">
+        #{model3,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity3 != null">
+        #{quantity3,jdbcType=INTEGER},
+      </if>
+      <if test="amount3 != null">
+        #{amount3,jdbcType=DECIMAL},
+      </if>
+      <if test="name4 != null">
+        #{name4,jdbcType=VARCHAR},
+      </if>
+      <if test="model4 != null">
+        #{model4,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity4 != null">
+        #{quantity4,jdbcType=INTEGER},
+      </if>
+      <if test="amount4 != null">
+        #{amount4,jdbcType=DECIMAL},
+      </if>
+      <if test="name5 != null">
+        #{name5,jdbcType=VARCHAR},
+      </if>
+      <if test="model5 != null">
+        #{model5,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity5 != null">
+        #{quantity5,jdbcType=INTEGER},
+      </if>
+      <if test="amount5 != null">
+        #{amount5,jdbcType=DECIMAL},
+      </if>
+      <if test="totalamount != null">
+        #{totalamount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="demo.entity.Orders">
+    update m_orders
+    <set>
+      <if test="name1 != null">
+        name1 = #{name1,jdbcType=VARCHAR},
+      </if>
+      <if test="model1 != null">
+        model1 = #{model1,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity1 != null">
+        quantity1 = #{quantity1,jdbcType=INTEGER},
+      </if>
+      <if test="amount1 != null">
+        amount1 = #{amount1,jdbcType=DECIMAL},
+      </if>
+      <if test="name2 != null">
+        name2 = #{name2,jdbcType=VARCHAR},
+      </if>
+      <if test="model2 != null">
+        model2 = #{model2,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity2 != null">
+        quantity2 = #{quantity2,jdbcType=INTEGER},
+      </if>
+      <if test="amount2 != null">
+        amount2 = #{amount2,jdbcType=DECIMAL},
+      </if>
+      <if test="name3 != null">
+        name3 = #{name3,jdbcType=VARCHAR},
+      </if>
+      <if test="model3 != null">
+        model3 = #{model3,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity3 != null">
+        quantity3 = #{quantity3,jdbcType=INTEGER},
+      </if>
+      <if test="amount3 != null">
+        amount3 = #{amount3,jdbcType=DECIMAL},
+      </if>
+      <if test="name4 != null">
+        name4 = #{name4,jdbcType=VARCHAR},
+      </if>
+      <if test="model4 != null">
+        model4 = #{model4,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity4 != null">
+        quantity4 = #{quantity4,jdbcType=INTEGER},
+      </if>
+      <if test="amount4 != null">
+        amount4 = #{amount4,jdbcType=DECIMAL},
+      </if>
+      <if test="name5 != null">
+        name5 = #{name5,jdbcType=VARCHAR},
+      </if>
+      <if test="model5 != null">
+        model5 = #{model5,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity5 != null">
+        quantity5 = #{quantity5,jdbcType=INTEGER},
+      </if>
+      <if test="amount5 != null">
+        amount5 = #{amount5,jdbcType=DECIMAL},
+      </if>
+      <if test="totalamount != null">
+        totalAmount = #{totalamount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="demo.entity.Orders">
+    update m_orders
+    set name1 = #{name1,jdbcType=VARCHAR},
+      model1 = #{model1,jdbcType=VARCHAR},
+      quantity1 = #{quantity1,jdbcType=INTEGER},
+      amount1 = #{amount1,jdbcType=DECIMAL},
+      name2 = #{name2,jdbcType=VARCHAR},
+      model2 = #{model2,jdbcType=VARCHAR},
+      quantity2 = #{quantity2,jdbcType=INTEGER},
+      amount2 = #{amount2,jdbcType=DECIMAL},
+      name3 = #{name3,jdbcType=VARCHAR},
+      model3 = #{model3,jdbcType=VARCHAR},
+      quantity3 = #{quantity3,jdbcType=INTEGER},
+      amount3 = #{amount3,jdbcType=DECIMAL},
+      name4 = #{name4,jdbcType=VARCHAR},
+      model4 = #{model4,jdbcType=VARCHAR},
+      quantity4 = #{quantity4,jdbcType=INTEGER},
+      amount4 = #{amount4,jdbcType=DECIMAL},
+      name5 = #{name5,jdbcType=VARCHAR},
+      model5 = #{model5,jdbcType=VARCHAR},
+      quantity5 = #{quantity5,jdbcType=INTEGER},
+      amount5 = #{amount5,jdbcType=DECIMAL},
+      totalAmount = #{totalamount,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
