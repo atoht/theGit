@@ -88,6 +88,7 @@ $(function() {
 <div >
 手动阀手动
 ${list[0].name }
+EJB:<label >${hello }</label>
 <form action="showCommodity" method="POST">
 <input type="text" name="datetime" class="ui_timepicker" value="2015-3-25 13:40:10">  
 <table>

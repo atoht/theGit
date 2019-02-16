@@ -1,7 +1,11 @@
 package demo.controller;
 
 import java.util.List;
+import java.util.Properties;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -32,13 +36,17 @@ public class SearchModel {
 	DownloadExcelI downloadExcelI;
 	@Autowired
 	HttpSession session;
+//	@EJB(mappedName="HelloBean")
+//	Hello hello;
 	
 	@RequestMapping({"/SearchModel", "/"})
 	public String search(Model model, FormDto formDto) {
+//		init();
 		List<Commodity> list = commodityMapper.selectByALL();
 		model.addAttribute("list", list);
 		model.addAttribute("command", new Orders());
 		session.setAttribute("list", list);
+//		model.addAttribute("hello", hello.sayHello());
 		new ModelAndView("orders", "command", new Orders());
 		return "SearchModel";
 	}
@@ -75,4 +83,17 @@ public class SearchModel {
 		downloadExcelI.createExcel(formDto, commodityList, resp);
 		return "OrderConfirm";
 	}
+	
+//	public void init() {
+//	  Properties properties=new Properties();  
+//      properties.setProperty(Context.INITIAL_CONTEXT_FACTORY,"weblogic.jndi.WLInitialContextFactory");  
+//      properties.setProperty(Context.PROVIDER_URL,"t3://localhost:7001");  
+//        
+//      try {
+//      	Context context = new InitialContext(properties);  
+//      	hello = (Hello) context.lookup("HelloBean#service.Hello");
+//		} catch (NamingException e) {
+//			e.printStackTrace();
+//		} 
+//	}
 }

@@ -17,9 +17,9 @@ http://www.springframework.org/schema/tx/spring-tx.xsd ">
 
 	<!-- 配置注解的映射器和适配器以及其他配置 -->
 	<mvc:annotation-driven>
-		<mvc:argument-resolvers>
-			<bean class="demo.annotation.FormToObject" />
-		</mvc:argument-resolvers>
+<!-- 		<mvc:argument-resolvers> -->
+<!-- 			<bean class="demo.annotation.FormToObject" /> -->
+<!-- 		</mvc:argument-resolvers> -->
 		<mvc:message-converters register-defaults="true">
 			<!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
 <!-- 			<bean class="org.springframework.http.converter.StringHttpMessageConverter"> -->
